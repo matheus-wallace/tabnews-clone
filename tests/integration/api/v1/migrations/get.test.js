@@ -1,11 +1,11 @@
 import database from "infra/database";
 import migrations from "pages/api/v1/migrations";
+import orchestrator from "tests/orchestrator";
 
-beforeAll(cleanDatabase);
-
-async function cleanDatabase() {
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
   await database.query("drop schema public cascade; create schema public");
-}
+});
 
 test("GET to /api/v1/migrations should return and array of objects", async () => {
   //verify if the response migrations is 200
