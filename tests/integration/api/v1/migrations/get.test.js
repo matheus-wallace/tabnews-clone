@@ -1,5 +1,4 @@
 import database from "infra/database";
-import migrations from "pages/api/v1/migrations";
 import orchestrator from "tests/orchestrator";
 
 beforeAll(async () => {
