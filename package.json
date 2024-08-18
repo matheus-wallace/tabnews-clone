@@ -12,6 +12,8 @@
     "jest:watch": "jest --watchAll --runInBand",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
+    "eslint:check": "eslint --ext .js,.jsx .",
+    "eslint:fix": "eslint --fix --ext .js,.jsx .",
     "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
     "migrations:up": "node-pg-migrate --migrations-dir infra/migrations --envPath .env.development up",
     "wait-for-postgres": "node ./infra/scripts/wait-for-postgres.js"
