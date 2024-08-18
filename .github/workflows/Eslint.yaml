@@ -13,6 +13,6 @@ jobs:
 
       - run: npm ci
 
-      - run: npm eslint:check
+      - run: npm run eslint:check
 
-      - run: npm eslint:fix
+      - run: npm run eslint:fix
