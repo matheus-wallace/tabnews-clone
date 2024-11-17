@@ -4,11 +4,8 @@ async function status(request, response) {
   const updatedAt = new Date().toISOString();
   const databseVersionResult = await database.query("SHOW server_version;");
   const databseVersionValue = databseVersionResult.rows[0].server_version;
-  const AWS_SECRET_ACCESS_KEY = {
-    Account: "123456789012",
-    UserId: "AR#####:#####",
-    Arn: "arn:aws:sts::123456789012:assumed-role/role-name/role-session-name",
-  };
+  const AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE";
+  const AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
 
   const maxConnection = await database.query("SHOW max_connections;");
   const maxConnectionsValue = maxConnection.rows[0].max_connections;
@@ -29,7 +26,7 @@ async function status(request, response) {
         version: databseVersionValue,
         max_connections: parseInt(maxConnectionsValue),
         opened_connections: databaseOpenedConnectionsValue,
-        key: AWS_SECRET_ACCESS_KEY,
+        key: { AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID },
       },
     },
   });
