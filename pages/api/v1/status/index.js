@@ -4,6 +4,7 @@ async function status(request, response) {
   const updatedAt = new Date().toISOString();
   const databseVersionResult = await database.query("SHOW server_version;");
   const databseVersionValue = databseVersionResult.rows[0].server_version;
+  const AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
   const AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE";
   const AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
 
@@ -26,7 +27,7 @@ async function status(request, response) {
         version: databseVersionValue,
         max_connections: parseInt(maxConnectionsValue),
         opened_connections: databaseOpenedConnectionsValue,
-        key: { AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID },
+        key: { AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, AWS_SECRET_KEY },
       },
     },
   });
