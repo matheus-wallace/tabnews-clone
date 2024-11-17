@@ -4,14 +4,14 @@ async function status(request, response) {
   const updatedAt = new Date().toISOString();
   const databseVersionResult = await database.query("SHOW server_version;");
   const databseVersionValue = databseVersionResult.rows[0].server_version;
-
-  const maxConnection = await database.query("SHOW max_connections;");
-  const maxConnectionsValue = maxConnection.rows[0].max_connections;
   const AWS_SECRET_ACCESS_KEY = {
     Account: "123456789012",
     UserId: "AR#####:#####",
     Arn: "arn:aws:sts::123456789012:assumed-role/role-name/role-session-name",
   };
+
+  const maxConnection = await database.query("SHOW max_connections;");
+  const maxConnectionsValue = maxConnection.rows[0].max_connections;
 
   const databaseName = process.env.POSTGRES_DB;
   const databaseOpenedConnectionsResult = await database.query({
