@@ -30,7 +30,6 @@ function UpdatedAt() {
   if (!isLoading && data) {
     updatedText = new Date(data.updated_at).toLocaleString("pt-BR");
     database = data.dependencies.database;
-    console.log(data);
   }
 
   return (
@@ -38,13 +37,16 @@ function UpdatedAt() {
       <Card cardTitle={"Última atualização"} cardValue={updatedText} />
       <Card
         cardTitle={"Máximo de conexões"}
-        cardValue={database?.max_connections}
+        cardValue={!isLoading ? database?.max_connections : updatedText}
       />
       <Card
         cardTitle={"Conexões abertas"}
-        cardValue={database?.opened_connections}
+        cardValue={!isLoading ? database?.opened_connections : updatedText}
       />
-      <Card cardTitle={"Versão do PostgreSQL"} cardValue={database?.version} />
+      <Card
+        cardTitle={"Versão do PostgreSQL"}
+        cardValue={!isLoading ? database?.version : updatedText}
+      />
     </div>
   );
 }
