@@ -1,0 +1,34 @@
+/* reset */
+
+.reset {
+  margin: 0;
+  padding: 0;
+}
+
+/* General styles */
+
+.cardContainer {
+  background-color: #1a1a1a4b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.cardValue {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .cardTitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .cardValue {
+    font-size: 1.4rem;
+  }
+}
